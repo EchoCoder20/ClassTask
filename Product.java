@@ -12,29 +12,7 @@ class Category {
     public void setName(String name) {
         this.name = name;
     }
-    public static void main(String[] args) {
-        // Create original objects
-        Category category = new Category("Electronics");
-        Product originalProduct = new Product(101, category);
 
-        // Clone the product
-        Product clonedProduct = originalProduct.deepClone();
-
-        // Show original and clone
-        System.out.println("Original Product ID: " + originalProduct.getId());
-        System.out.println("Original Category: " + originalProduct.getCategory().getName());
-
-        System.out.println("Cloned Product ID: " + clonedProduct.getId());
-        System.out.println("Cloned Category: " + clonedProduct.getCategory().getName());
-
-        // Modify the clone's category
-        clonedProduct.getCategory().setName("Books");
-
-        // Show that changing the clone doesn't affect the original
-        System.out.println("\nAfter modifying clone's category:");
-        System.out.println("Original Category: " + originalProduct.getCategory().getName());
-        System.out.println("Cloned Category: " + clonedProduct.getCategory().getName());
-    }
     public Category deepClone()
     {
         return new Category(this.name);
